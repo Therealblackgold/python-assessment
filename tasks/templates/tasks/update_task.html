@@ -1,0 +1,20 @@
+{% extends 'accounts/main.html' %}
+<!-- body -->
+{% block content %}
+<!-- navbar -->
+{% include 'accounts/navbar.html' %}
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6-sm">
+      <h2>Update Task</h2>
+      <form method="post">
+        {% csrf_token %}
+        <!--  -->
+        {{form.as_p}}
+        <input type="submit" class="btn btn-primary" name="Update Task" />
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}

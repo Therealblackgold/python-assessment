@@ -1,0 +1,76 @@
+{% extends 'accounts/main.html' %}
+<!--  -->
+{% block content %}
+
+<style>
+  .col-spacing {
+    margin-right: 20px;
+  }
+</style>
+<!-- navbar -->
+{% include 'accounts/navbar.html' %}
+<!-- navbar end -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-sm shadow py-3 my-4 col-spacing">
+      <h1>The project</h1>
+      <hr />
+      <p>
+        Welcome to the project what we have here is a django project that
+        demonstrates extending the django user model to give us custom
+        registration fields including file uploads.
+      </p>
+      <p>
+        We also tackled adding real world functionalities like login,password
+        reset,sending email, CRUD through a task manager that extends beyond
+        Django basic functionalies using a mysql database.
+      </p>
+      On the right side of the scrern we have displayed the details you
+      submitted during your registration. On the navbar we have placed a navlink
+      to send you diredctly to your personal task manager everything on the
+      application should be fully functinal.
+      <p>
+        Feel free to updated your registration details or simply saving a few
+        tasks to test the project the ui isnt production ready but everything
+        has a simple/user friendly layout the assessment was a greate
+        expierience and I thank you for the opportunity really wish i could do
+        more work with you in future so i can leave the farm
+        <em>kind regards Gauta Ncolo</em>.
+      </p>
+    </div>
+    <div class="col-sm shadow py-3 my-4 col-spacing">
+      <h1>{{user.first_name}} {{user.last_name}}</h1>
+      <hr />
+      <div class="user-info">
+        <p>Email:{{user.email}}</p>
+        {% if user.phone_number %}
+        <p>Phone number:{{user.phone_number}}</p>
+        {% endif %}
+        <!--  -->
+        {% if user.phone_number %}
+        <p>ID no:{{user.id_number}}</p>
+        {% endif %}
+        <!--  -->
+        {% if user.phone_number %}
+        <p>Address:{{user.address}}</p>
+        {% endif %}
+        <h5>Documents</h5>
+        {% if user.phone_number %}
+        <i class="fas fa-file-alt"></i>
+        <a href="{{user.id_copy.url}}">ID Copy</a>
+        {% endif %}
+        <br />
+        {% if user.phone_number %}
+        <i class="fas fa-file-alt"></i>
+        <a href="{{user.id_copy.url}}">Proof of address</a>
+        {% endif %}
+        <br />
+
+        <a href="{% url 'update-user' user.id %}" class="btn btn-info mt-3"
+          >Update</a
+        >
+      </div>
+    </div>
+  </div>
+  {% endblock content %}
+</div>

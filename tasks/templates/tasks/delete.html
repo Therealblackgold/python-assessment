@@ -1,0 +1,19 @@
+{% extends 'accounts/main.html' %}
+<!-- body -->
+{% block content %}
+<!-- navbar -->
+{% include 'accounts/navbar.html' %}
+
+<div class="container mt-5">
+  <p>Are your sure you want to delete <b>"{{item}}"</b>?</p>
+  <a href="{% url 'tasks' %}">Cancel</a>
+  <hr />
+
+  <form method="POST" action="">
+    {% csrf_token %}
+    <!--  -->
+    {{form}}
+    <input class="btn btn-danger" type="submit" name="Confirm" />
+  </form>
+</div>
+{% endblock content %}

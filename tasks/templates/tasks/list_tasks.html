@@ -1,0 +1,63 @@
+{% extends 'accounts/main.html' %}
+<!-- body -->
+{% block content %}
+<!-- navbar -->
+{% include 'accounts/navbar.html' %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6-sm">
+      <h2>Task Manager</h2>
+      <form method="post">
+        {% csrf_token %}
+        <!-- form -->
+        {{form.title}}
+        <button type="submit" class="btn btn-primary mt-2 ml-3">submit</button>
+      </form>
+
+      <div class="row mt-4 mb-5">
+        {% for task in tasks %}
+        <!--  -->
+        <div class="col-6-sm">
+          <div class="card">
+            <div class="card-body">
+              <!-- deletd if statement -->
+              {% if task.deleted == False %}
+              <!-- completed if statement -->
+              {% if task.complete == True %}
+              <strike class="card-title">{{task.title}}</strike>
+              <hr />
+              <a href="{% url 'update_task' task.pk %}" class="btn btn-info"
+                >Update</a
+              >
+              <a
+                href="{% url 'delete_task' task.pk %}"
+                class="btn btn-danger"
+                style="margin-left: 1rem"
+                >Delete</a
+              >
+              {% else %}
+              <p class="card-title">{{task.title}}</p>
+
+              <hr />
+              <a href="{% url 'update_task' task.pk %}" class="btn btn-info"
+                >Update</a
+              >
+              <a
+                href="{% url 'delete_task' task.pk %}"
+                class="btn btn-danger"
+                style="margin-left: 1rem"
+                >Delete</a
+              >
+              <!-- completed if statement end -->
+              {% endif %}
+              <!-- deleted if statement end -->
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

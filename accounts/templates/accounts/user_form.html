@@ -1,0 +1,32 @@
+{% extends 'accounts/main.html' %}
+<!--  -->
+{% block content %}
+<!--  -->
+{% include 'accounts/navbar.html' %}
+<!--  -->
+{% if confirm %}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>User Details</strong> Updated Successfully!
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endif %}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5 shadow py-4">
+      <h2>Update {{request.user}}'s Details</h2>
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- form -->
+        {{form.as_p}}
+        <button class="btn btn-info">Update</button>
+      </form>
+    </div>
+  </div>
+
+  {% endblock content %}
+</div>

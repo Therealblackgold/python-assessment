@@ -15,7 +15,7 @@
      mysql> Select * from accounts_customuser
      
      # export users to excel
-     mysql> Select * from table_name into outfile  "path\\to\\excel\\document\\file_name.csv" fields terminated by ', '  lines terminated by '\n '; 
+     mysql> Select * from accounts_customuser into outfile  "path\\to\\excel\\document\\file_name.csv" fields terminated by ', '  lines terminated by '\n '; 
 
     -tasks
       mysql> show databases;
@@ -30,11 +30,16 @@
       # delete task
       mysql> DELETE FROM tasks_task  WHERE id = 14;
       
+      # specific task
+      SELECT  username,FROM tasks_task WHERE id = 1;
+      
       # show complete tasks
       mysql> SELECT complete FROM tasks_task WHERE true;
       
       # show deleted tasks
       mysql> SELECT delete FROM tasks_task WHERE true;
+      
+      "I cant export to excel at the moment due to technical dificalties."
       
       
     

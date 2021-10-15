@@ -1,23 +1,26 @@
 # python-assessment
- -The project was built using the latest Python 3.9.7 version
- -Django Custom
- -Registration-Sign In Page
+  The project was built using the latest Python 3.9.7 version
 
--Command Line 
-  -Exporting User
-     -show databases;
-     - use database_name;
-     - show tables;
-     - use python_assessment;
-     - Select * from accounts_customuser
-     - Select * from table_name into outfile  "path\\to\\excel\\document\\file_name.csv" fields terminated by ', '  lines terminated by '\n '; 
+     Command Line 
+    -customUser
+     mysql> show databases;
+     mysql> use database_name;
+     mysql> show tables;
+     mysql> use python_assessment;
+     mysql> Select * from accounts_customuser
+     mysql> Select * from table_name into outfile  "path\\to\\excel\\document\\file_name.csv" fields terminated by ', '  lines terminated by '\n '; 
 
-
-    -Exorting tasks
-      - show databases;
-      - use python_assessment;
-      - select * from tasks_task;
+    -tasks
+      mysql> show databases;
+      mysql> use python_assessment;
+      # show all tasks
+      mysql> select * from tasks_task;
+      
+     -show complete tasks
+      mysql> SELECT complete FROM tasks_task WHERE true;
+     -show deleted tasks
+      mysql> SELECT delete FROM tasks_task WHERE true;
       
       
-    -Listing columns
+    
 
